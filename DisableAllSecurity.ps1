@@ -1,4 +1,4 @@
-# Désactiver Windows Defender Antivirus
+# Désactiver les fonctionnalités de Windows Defender
 Set-MpPreference -DisableRealtimeMonitoring $true
 Set-MpPreference -DisableBehaviorMonitoring $true
 Set-MpPreference -DisableBlockAtFirstSeen $true
@@ -16,3 +16,6 @@ Set-ItemProperty -Path HKLM:\Software\Microsoft\Windows\CurrentVersion\Policies\
 
 # Désactiver SmartScreen pour les applications et fichiers
 Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\System" -Name EnableSmartScreen -Value 0
+
+# Appliquer les modifications du Registre nécessitant un redémarrage
+Restart-Computer -Force
